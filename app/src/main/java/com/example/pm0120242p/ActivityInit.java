@@ -19,9 +19,8 @@ import Configuracion.Trans;
 
 public class ActivityInit extends AppCompatActivity
 {
-    EditText nombres, apellidos, edad, correo;
-    Button btningresar;
-
+        EditText nombres, apellidos, edad, correo;
+        Button btnagregar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,11 +38,12 @@ public class ActivityInit extends AppCompatActivity
         apellidos = (EditText) findViewById(R.id.apellidos);
         edad = (EditText) findViewById(R.id.edad);
         correo = (EditText) findViewById(R.id.correo);
-        btningresar = (Button) findViewById(R.id.btningresar);
+        btnagregar = (Button) findViewById(R.id.btningresar);
 
-        btningresar.setOnClickListener(new View.OnClickListener() {
+        btnagregar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Agregar();
             }
         });
@@ -51,26 +51,27 @@ public class ActivityInit extends AppCompatActivity
 
     private void Agregar()
     {
-       try{
-           SQLiteConexion conexion = new SQLiteConexion(this, Trans.DBname, null, Trans.Version);
-           SQLiteDatabase db = conexion.getWritableDatabase();
+        try {
+            SQLiteConexion conexion = new SQLiteConexion(this, Trans.DBname, null, Trans.Version);
+            SQLiteDatabase db = conexion.getWritableDatabase();
 
-           ContentValues valores = new ContentValues();
-           valores.put(Trans.nombres, nombres.getText().toString());
-           valores.put(Trans.apellidos, apellidos.getText().toString());
-           valores.put(Trans.edad, edad.getText().toString());
-           valores.put(Trans.correo, correo.getText().toString());
+            ContentValues valores = new ContentValues();
+            valores.put(Trans.nombres, nombres.getText().toString());
+            valores.put(Trans.apellidos, apellidos.getText().toString());
+            valores.put(Trans.edad, edad.getText().toString());
+            valores.put(Trans.correo, correo.getText().toString());
 
-           Long resultado = db.insert(Trans.TablePersonas, Trans.id, valores);
+            Long resultado = db.insert(Trans.TablePersonas, Trans.id, valores);
 
-           Toast.makeText(getApplicationContext(), "Registro ingresado con exito" + resultado.toString(),
-                   Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Registro ingresado con exito " + resultado.toString(),
+                Toast.LENGTH_LONG).show();
 
-           db.close();
-       }
-       catch (Exception ex)
-       {
-           ex.toString();
-       }
+            db.close();
+        }
+        catch (Exception ex)
+        {
+            ex.toString();
+        }
+
     }
 }

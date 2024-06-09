@@ -16,7 +16,7 @@ public class SQLiteConexion extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        //Creacion de todas las tablas en SQLite
+        //Creacion de todas las tablas
         db.execSQL(Trans.CreateTablePersonas);
     }
 
@@ -25,5 +25,6 @@ public class SQLiteConexion extends SQLiteOpenHelper
     {
         db.execSQL(Trans.DropTablePersonas);
         onCreate(db);
+
     }
 }

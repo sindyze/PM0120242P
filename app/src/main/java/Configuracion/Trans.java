@@ -2,34 +2,27 @@ package Configuracion;
 
 public class Trans
 {
-    //Version Database
+    //version database
     public static final int Version = 1;
     //Nombre de la base de datos
-    public static final String DBname= "PM012P";
+    public static final String DBname = "PM0122P";
 
-    //tabla persona
-    public static final String TablePersonas = "personas";
+    //Tabla personas
+    public  static final String TablePersonas = "personas";
 
-    //propiedades
-    public static final String id = "id";
+    //Propiedades
+    public  static final  String  id = "id";
+    public  static final  String  nombres = "nombres";
+    public  static final  String  apellidos = "apellidos";
+    public  static final  String  edad = "edad";
+    public  static final  String  correo = "correo";
+    public  static final  String  foto = "foto";
 
-    public static final String nombres = "nombres";
-
-    public static final String apellidos = "apellidos";
-
-    public static final String edad = "edad";
-
-    public static final String correo = "correo";
-
-    public static final String foto = "foto";
-
-
-    //  DDL Create
+    //DDL Create
     public static final String CreateTablePersonas = "CREATE TABLE " + TablePersonas + " ( " +
-            "id INTERGER PRIMARY KEY AUTOINCREMET, nombres TEXT, apellidos TEXT, edad INTEGER, correo TEXT, foto TEXT";
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, nombres TEXT, apellidos TEXT, edad INTEGER, correo TEXT, foto TEXT )";
 
-    public static final String selectAllPerson = "SELECT * FROM " + TablePersonas ;
+    public static final String SelectAllPerson = "SELECT * FROM " + TablePersonas;
 
-    public static final String DropTablePersonas = "DROP TABLE IF EXISTS " + TablePersonas ;
+    public static final String DropTablePersonas = "DROP TABLE IF EXISTS " + TablePersonas;
 }
-
